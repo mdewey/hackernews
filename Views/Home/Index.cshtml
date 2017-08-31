@@ -1,0 +1,44 @@
+﻿@model IEnumerable<StoryViewModel>
+    @{ 
+        ViewData["Title"] = "Home Page";
+        var count = 1;
+     }
+
+    <Br/>
+    <br/>
+    <Br/>
+    <table border="0" cellpadding="0" cellspacing="0" class="itemlist">
+        <tbody>
+            @foreach(var story in Model)
+            {
+            <tr class="athing" id="15139668">
+                <td align="right" valign="top" class="title"><span class="rank">@count.</span></td>
+                <td valign="top" class="votelinks">
+                    <center>
+                        <a asp-controller="Home" asp-action="vote" asp-route-id=@story.Id>
+                            <div class="votearrow" title="upvote"></div>
+                        </a>
+                    </center>
+                </td>
+                <td class="title">
+                    <a href="@story.Url"
+                        class="storylink">@story.Title</a><span class="sitebit comhead"> (<a href="from?site=freecodecamp.org"><span class="sitestr">freecodecamp.org</span></a>)</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+                <td class="subtext">
+                     <span class="score" id="score_15140043">@story.Points points</span> by
+                     <a href="user?id=knaik94" class="hnuser">@story.Submitter</a> 
+                     <span class="age"><a href="item?id=15140043">@story.TimePosted</a></span> 
+                     <span id="unv_15140043"></span> |
+                     <a href="hide?id=15140043&amp;goto=news">hide</a> |
+                     <a href="item?id=15140043">@story.NumberOfComments&nbsp;comments</a>          
+                 </td>
+                @{
+                    count++;
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
