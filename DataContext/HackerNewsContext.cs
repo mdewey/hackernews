@@ -3,12 +3,14 @@ using hackernews.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace hackernews.DataContext
+namespace hackernews
 {
     public partial class HackerNewsContext : DbContext
     {
 
         public DbSet<NewsStory> NewsStory{get;set;}
+
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

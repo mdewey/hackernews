@@ -33,7 +33,7 @@
                      <span class="age"><a href="item?id=15140043">@story.TimePosted</a></span> 
                      <span id="unv_15140043"></span> |
                      <a href="hide?id=15140043&amp;goto=news">hide</a> |
-                     <a href="item?id=15140043">@story.NumberOfComments&nbsp;comments</a>          
+                     <a asp-controller="Story" asp-action="Details" asp-route-id=@story.Id>@story.NumberOfComments&nbsp;comments</a>          
                  </td>
                 @{
                     count++;

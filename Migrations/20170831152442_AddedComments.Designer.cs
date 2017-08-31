@@ -11,9 +11,10 @@ using System;
 namespace hackernews.Migrations
 {
     [DbContext(typeof(HackerNewsContext))]
-    partial class HackerNewsContextModelSnapshot : ModelSnapshot
+    [Migration("20170831152442_AddedComments")]
+    partial class AddedComments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,7 +40,7 @@ namespace hackernews.Migrations
 
                     b.HasIndex("NewsStoryId");
 
-                    b.ToTable("Comments");
+                    b.ToTable("Comment");
                 });
 
             modelBuilder.Entity("hackernews.Models.NewsStory", b =>

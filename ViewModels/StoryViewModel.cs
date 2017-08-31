@@ -22,7 +22,7 @@ namespace hackernews.Models
             this.Id = story.Id;
             this.Body = story.Body;
             this.Points = story.Points;
-            this.NumberOfComments = 0;
+            this.NumberOfComments = story.Comments.Count;
             this.Submitter = story.Submitter;
             this.TimePosted = story.TimePosted;
             this.Title = story.Title;

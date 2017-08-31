@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using hackernews.Models;
-using hackernews.DataContext;
+using Microsoft.EntityFrameworkCore;
 
 namespace hackernews.Controllers
 {
@@ -23,7 +23,9 @@ namespace hackernews.Controllers
 
             // query the database
             // create the viewmodels
-            var vm = _context.NewsStory.Select(s => new StoryViewModel(s));
+            var vm = _context.NewsStory
+                .Include(i => i.Comments)
+                .Select(s => new StoryViewModel(s));
             return View(vm);
         }
 

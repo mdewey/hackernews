@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using hackernews.Models;
-using hackernews.DataContext;
 
 namespace hackernews.Controllers
 {
@@ -33,7 +32,9 @@ namespace hackernews.Controllers
                 return NotFound();
             }
 
-            var newsStory = await _context.NewsStory
+            var newsStory = await _context
+                .NewsStory
+                .Include(i => i.Comments)
                 .SingleOrDefaultAsync(m => m.Id == id);
             if (newsStory == null)
             {

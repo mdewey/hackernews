@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace hackernews.Models
@@ -14,5 +15,7 @@ namespace hackernews.Models
         public string Submitter { get; set; }
         public int Points { get; set; }
         public DateTime TimePosted { get; set; } = DateTime.Now;
+
+        public ICollection<Comment> Comments { get; set; } = new HashSet<Comment>();
     }
 }

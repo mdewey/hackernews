@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using hackernews.DataContext;
 using Microsoft.EntityFrameworkCore;
+
+
 namespace hackernews
 {
     public class Startup
